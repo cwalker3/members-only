@@ -1,5 +1,5 @@
-class PostController < ApplicationController
-  before_action :user_signed_in?, only: [:new, :create]
+class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
 
   def new
     @post = Post.new
@@ -9,7 +9,7 @@ class PostController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to :index
+      redirect_to root_url
     else
       render :new, status: :unprocessable_entity
     end

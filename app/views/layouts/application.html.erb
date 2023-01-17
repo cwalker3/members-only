@@ -11,6 +11,20 @@
   </head>
 
   <body>
+
+  <a href="/posts">Home</a>
+  <% if user_signed_in? %>
+    <a href="/posts/new">Create Post</a>
+    <a href="/users/sign_out">Sign out</a>
+  <% else %>
+    <a href="/users/sign_in">Sign in</a>
+    <a href="/users/sign_up">Sign up</a>
+  <% end %>
+  <br>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>

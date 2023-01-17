@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def new
     @user = User.new
   end
@@ -11,6 +11,10 @@ class UserController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def index
+    @posts = Post.all
   end
 
   private
